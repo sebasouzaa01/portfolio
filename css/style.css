@@ -1,0 +1,208 @@
+/* --- Variables y Reset --- */
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #e0e0e0;
+    --accent-color: #00f2ff; /* Cian Neón */
+    --accent-hover: #008cff; /* Azul Neón */
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Fondo con degradado sutil --- */
+.background-glow {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, rgba(10, 10, 10, 0) 60%);
+    z-index: -1;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- Navegación --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.dot { color: var(--accent-color); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent-color); }
+
+/* --- Hero Section --- */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px;
+}
+
+.primary {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+.primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 25px rgba(0, 140, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.secondary {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.secondary:hover {
+    background: rgba(0, 242, 255, 0.1);
+}
+
+/* --- Proyectos (Grid) --- */
+.projects-section {
+    padding: 80px 10%;
+}
+
+.projects-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.card h3 { margin-bottom: 10px; font-size: 1.5rem; }
+.card p { color: #aaa; margin-bottom: 20px; font-size: 0.9rem; }
+
+.card-links a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.card-links a:hover { text-decoration: underline; }
+
+/* --- Contacto --- */
+.contact-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to top, #000, transparent);
+}
+
+.linkedin-btn {
+    background: #0077b5;
+    color: white;
+    margin-top: 20px;
+}
+.linkedin-btn:hover { background: #005582; }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* --- Responsive para celular --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Simplificado para demo */
+    .hero h1 { font-size: 2.5rem; }
+}
